@@ -1,0 +1,13 @@
+.carinfo{
+    padding: 10px 250px;
+    direction: rtl;
+    text-align: right;
+}
+.carinfo h2,h6{
+    text-align: center;
+}
+@media screen and (max-width : 680px){
+    .carinfo{
+        padding: 10px 10px;
+    }
+}

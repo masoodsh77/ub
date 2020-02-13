@@ -1,0 +1,108 @@
+.tp_stepper{
+    margin-top: 55px;
+    direction: rtl;
+    font-family: 'yekan';
+}
+.tp_stepper_content{
+    padding: 0 150px;
+}
+.line1{
+    -ms-flex: 1 0 32px;
+      flex: 1 0 22px;
+  min-width: 1px;
+  min-height: 1px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, .12);
+}
+
+.bs-stepper-circle1 {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    width: 3em;
+    height: 3em;
+    padding: .5em 0;
+    margin: 0rem;
+    line-height: 1em;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 4em;
+  }
+  
+  .active .bs-stepper-circle1 {
+    background-color: #007bff;
+  }
+  .background{
+      border-radius: 20px;
+      box-shadow: gray 1px 1px 10px;
+      padding: 10px 0 !important;
+  }
+  .nextBtn{
+      float: left;
+      margin-top: 10px;
+      border-radius: 30px !important;
+  }
+  .preBtn{
+      float: right;
+      margin-top: 10px;
+      border-radius: 30px !important;
+  }
+  .bottomNavbar{
+    display: none;
+  }
+  .bottomBtn{
+      display: block;
+  }
+  
+  .navNextBtn{
+    float: left;
+    width: 45%;
+    margin-right: 40px;
+    height: 50px;
+  }
+  .navPreBtn{
+    float: right;
+    width: 45%;
+    height: 50px;
+  }
+  @media screen and (max-width : 642px){
+    .line1{
+        -ms-flex:1 0 0 5px;
+      flex:1 0 0 5px;
+    }
+    .tp_stepper_content{
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width : 400px){
+    .line1{
+        -ms-flex:1 0 0 5px;
+      flex:1 0 0 0;
+    }
+    .tp_stepper_content{
+        padding:0;
+    }
+    .background{
+        margin-bottom: 40px;
+    }
+    .tp_stepper{
+        font-size: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .tp_stepper_header{
+        padding-left: 10px !important;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width : 620px){
+    .bottomNavbar{
+        display: block;
+    }
+    .bottomBtn{
+        display: none;
+    }
+}

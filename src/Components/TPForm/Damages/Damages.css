@@ -1,0 +1,11 @@
+.damages{
+    padding: 10px 250px;
+direction: rtl;
+text-align: right;
+}
+@media screen and (max-width : 680px){
+    .damages{
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+}

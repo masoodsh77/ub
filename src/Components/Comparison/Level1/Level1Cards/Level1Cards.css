@@ -1,0 +1,16 @@
+.card{
+    border-radius: 90px;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 15px 0 0 0;
+}
+.star{
+    color: orange;
+    margin-top: 25px;
+}
+.shoaab{
+    margin-top: 25px;
+}
+.BuyBtn{
+    margin-top: 15px;
+}

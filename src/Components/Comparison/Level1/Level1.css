@@ -1,0 +1,69 @@
+.Level1_percents{
+    border-radius: 10px;
+    box-shadow: 0 0 3px gray;
+    height: 100%;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.Level1_percentsl1_icon{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: darkorange;
+}
+.Level1_Side_Bar{
+    border-radius: 10px;
+    box-shadow: 0 0 3px gray;
+    height: 100%;
+    padding: 10px 10px !important;
+}
+.Level1_percents_form{
+    text-align: center;
+    width: 100%;
+}
+.Level1_percents_form_p{
+    text-align: right;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+.Level1_percents_form_Input{
+    direction: ltr;
+}
+.Container{
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+.level_alert{
+    border: 1px solid rgb(98, 192, 250);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(220, 246, 255);
+    color: rgb(0, 157, 255);
+}
+.Level1_main{
+    padding-left: 0 !important;
+}
+.level1_title{
+    height: 60px;
+    background-color: rgb(10, 10, 250);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 10px;
+    color: white;
+    font-size: 12px;
+}
+.title_text{
+    margin-top: 20px;
+}
+.sideBar_radiobtn{
+    padding: 2px;
+    width: 105px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.radioBtn{
+    margin-right: 9px;
+}
