@@ -1,16 +1,42 @@
 .card{
     border-radius: 90px;
-    height: 100px;
     margin-bottom: 10px;
-    padding: 15px 0 0 0;
+    padding: 15px 15px;
+    font-family: 'yekanNum','yekan';
 }
 .star{
     color: orange;
-    margin-top: 25px;
-}
-.shoaab{
-    margin-top: 25px;
 }
 .BuyBtn{
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.other{
+    margin-right:15px;
+    padding-bottom: 0;
+    float: right;
+
+}
+.other_gift{
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    float: right;
+    width: 100px;
+    margin-left: 10px;
+    height: 25px;
+}
+.other_alarm{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    float: right;
+    width: 100px;
+    margin-left: 10px;
+    height: 25px
+}
+.shoaab{
+    
 }

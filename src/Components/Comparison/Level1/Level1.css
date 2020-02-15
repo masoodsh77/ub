@@ -5,6 +5,7 @@
     text-align: right;
     margin-bottom: 10px;
     padding: 10px;
+    background-color: white;
 }
 .Level1_percentsl1_icon{
     margin-top: 10px;
@@ -16,6 +17,7 @@
     box-shadow: 0 0 3px gray;
     height: 100%;
     padding: 10px 10px !important;
+    background-color: white;
 }
 .Level1_percents_form{
     text-align: center;
@@ -36,25 +38,33 @@
 }
 .level_alert{
     border: 1px solid rgb(98, 192, 250);
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 5px;
     background-color: rgb(220, 246, 255);
     color: rgb(0, 157, 255);
 }
 .Level1_main{
     padding-left: 0 !important;
 }
+@media screen and (max-width : 640px){
+    .Level1_main{
+        padding-right: 0 !important;
+    }
+}
 .level1_title{
-    height: 60px;
+    height: 40px;
     background-color: rgb(10, 10, 250);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     margin-top: 10px;
     color: white;
     font-size: 12px;
+    font-weight: bold;
+    padding-top: 5px;
 }
 .title_text{
-    margin-top: 20px;
+    font-size: 16px;
+    float: right;
 }
 .sideBar_radiobtn{
     padding: 2px;
@@ -66,4 +76,12 @@
 }
 .radioBtn{
     margin-right: 9px;
+}
+@media screen and (max-width:680px){
+    .Level1_Side_Bar{
+        display: none;
+    }
+}
+.filters{
+    padding-right: 127px;
 }

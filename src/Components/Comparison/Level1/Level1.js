@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Col , InputGroup , Button , FormControl} from 'react-bootstrap';
+import { Container, Row, Col , InputGroup , Button , FormControl , DropdownButton , Dropdown} from 'react-bootstrap';
 import './Level1.css';
 import { FaAlignJustify , FaAngleLeft } from "react-icons/fa";
-import Select from "react-dropdown-select";
 import Level1Cards from './Level1Cards/Level1Cards';
 import { FaCheck , FaTimes } from 'react-icons/fa';
 import DropdownList from 'react-widgets/lib/DropdownList'
@@ -21,10 +20,10 @@ class Level1 extends Component {
             <div>
                 <Container className="Container">
                 <div className="Level1_percents">
-                    <FaAlignJustify className="Level1_percentsl1_icon"/><span>گزینه های اضافی</span>
+                    <FaAlignJustify className="Level1_percentsl1_icon"/><span>اطلاعات بیشتر</span>
                     <Container className="Level1_percents_form Container">
                     <Row>
-                        <Col>
+                        <Col lg={4} xs={12}>
                             <p className="Level1_percents_form_p">کد تخفیف</p>
                             <InputGroup className="mb-3 Level1_percents_form_Input">
                                 <InputGroup.Prepend>
@@ -33,7 +32,7 @@ class Level1 extends Component {
                                 <FormControl aria-describedby="basic-addon1" />
                             </InputGroup>
                         </Col>
-                        <Col>
+                        <Col lg={4} xs={12}>
                             <p className="Level1_percents_form_p">سطح تعهدات مالی</p>
                             <DropdownList filter
                                 data={this.state.people}
@@ -45,7 +44,7 @@ class Level1 extends Component {
                                 style={{textAlign:"right"}}
                             />
                         </Col>
-                        <Col>
+                        <Col lg={4} xs={12}>
                             <p className="Level1_percents_form_p">مدت اعتبار بیمه نامه</p>
                             <DropdownList filter
                                 data={this.state.people}
@@ -222,26 +221,15 @@ class Level1 extends Component {
                             <div className="level1_title">
                                 <Container>
                                     <Row>
-                                        <Col lg={2} className="title_text">
-                                            شرکت بیمه
+                                        <Col lg={9}>
+                                            <span className="title_text">لیست شرکت های بیمه</span>
                                         </Col>
-                                        <Col lg={2} className="title_text">
-                                            قیمت
-                                        </Col>
-                                        <Col lg={2} className="title_text">
-                                            سطح توانگری
-                                        </Col>
-                                        <Col lg={2} className="title_text">
-                                            تعداد شعب پرداخت خسارت
-                                        </Col>
-                                        <Col lg={1}>
-                                            رضایت از مبلغ پرداختی
-                                        </Col>
-                                        <Col lg={1}>
-                                            زمان پاسخگویی به شکایات
-                                        </Col>
-                                        <Col lg={2} className="title_text">
-                                            عملیات
+                                        <Col lg={3}>
+                                            <DropdownButton className="filters" variant="warning" id="dropdown-basic-button" title="فیلتر ها">
+                                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                            </DropdownButton>
                                         </Col>
                                     </Row>
                                 </Container>
@@ -256,7 +244,7 @@ class Level1 extends Component {
                 </Container>
             </div>
         );
-    }test
+    }
 }
 
 export default Level1;

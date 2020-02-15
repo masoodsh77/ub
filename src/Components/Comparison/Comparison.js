@@ -6,11 +6,10 @@ import Level1 from './Level1/Level1'
 
 class Comparison extends Component {
     componentDidMount() {
-        this.stepper = new Stepper(document.querySelector('#stepper1'), {
+        this.stepper = new Stepper(document.querySelector('#stepper2'), {
           linear: false,
           animation: true
         })
-        console.log(this.stepper)
       }
     
       onSubmit(e) {
@@ -22,7 +21,7 @@ class Comparison extends Component {
           <div className="comparison_stepper">
             <TopMenu/>
             <div className="comparison_stepper_content">
-                <div id="stepper1" class="bs-stepper">
+                <div id="stepper2" class="bs-stepper">
                 <div class="bs-stepper-header tp_stepper_header">
                     <div class="step" data-target="#test-l-1">
                     <button class="step-trigger" style={{maxWidth:"100px"}}>

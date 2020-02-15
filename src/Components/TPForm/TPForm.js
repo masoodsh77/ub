@@ -8,8 +8,6 @@ import PreInsurance from './preInsurance/PreInsurance';
 import Percents from './Percents/Percents';
 import Damages from './Damages/Damages';
 import { connect } from 'react-redux';
-import Select from 'react-dropdown-select';
-
 
 class TPForm extends Component {
     componentDidMount() {
