@@ -1,3 +1,6 @@
+body{
+    font-family: 'yekanNum','yekan' !important  ;
+}
 .card{
     border-radius: 90px;
     margin-bottom: 10px;
@@ -18,14 +21,34 @@
 
 }
 .other_gift{
+    background-color:rgb(220, 246, 255);
+    color: rgb(98, 192, 250);
+    border-radius: 5px;
+    margin-top: 10px;
+    float: right;
+    padding: 1px 10px;
+    margin-left: 10px;
+    text-align: justify;
+    font-size: 12px;
+}
+.other_gift p{
+    margin: 0 !important;
+}
+.other_discount{
     background-color: green;
     color: white;
     border-radius: 5px;
     margin-top: 10px;
     float: right;
-    width: 100px;
+    padding: 1px 10px;
     margin-left: 10px;
-    height: 25px;
+    font-size: 12px;
+}
+.other_discount p {
+    margin: 0;
+}
+.other_alarm p{ 
+    margin: 0;
 }
 .other_alarm{
     background-color: red;
@@ -33,10 +56,29 @@
     border-radius: 5px;
     margin-top: 10px;
     float: right;
-    width: 100px;
+    padding: 1px 10px;
     margin-left: 10px;
-    height: 25px
+    font-size: 12px;
 }
-.shoaab{
-    
+.price{
+    color: green;
+    font-weight: bold;
+    font-size: 16px;
+}
+.price_col{
+    margin-top: 20px;
+}
+.price_Btn{
+    border-right: 1px dashed gray;
+}
+@media screen and (max-width: 640px){
+    .price_Btn{
+        border-top: 1px dashed gray;
+        border-right: none;
+        margin-top: 10px;
+    }
+    .BuyBtn{
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
 }

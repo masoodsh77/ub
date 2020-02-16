@@ -34,20 +34,22 @@ class Level1Cards extends React.Component{
                             </Col>
                             <Row>
                                 <Col lg={12} className="other">
-                                <div className="other_gift"><p>هدیه</p></div>
-                                <div className="other_gift"><p>تخفیف</p></div>
+                                <div className="other_discount"><p>تخفیف</p></div>
                                 <div className="other_alarm"><p>جریمه دیرکرد</p></div>
                                 <div className="other_alarm"><p>جریمه کهنگی</p></div>
+                                <div className="other_gift"><p>با خرید این بیمه نامه به شما یک بیمه نامه آتش سوزی هدیه داده میشود</p></div>
                                 </Col>
                             </Row>
                         </Row>
                         </Col>
-                        <Col lg={2} style={{borderRight:"1px dashed gray"}}>
+                        <Col lg={2} className="price_Btn">
                             <Row>
-                                <Col>
-                                    <span style={{color:"green" , fontFamily:"yekanNum"}}>13213211</span> تومان
+                                <Col lg={12} md={12} sm={6} xs={7} className="price_col">
+                                    <span className="price">
+                                        13213211
+                                    </span> تومان
                                 </Col>
-                                <Col>
+                                <Col lg={12} md={12} sm={6} xs={5}>
                                     <Button block variant="success" className="BuyBtn">خرید</Button>
                                 </Col>
                             </Row>
