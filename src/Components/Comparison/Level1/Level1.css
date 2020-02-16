@@ -83,54 +83,5 @@
     }
 }
 .filters{
-    padding-right: 115px;
-}
-#dropdown-basic-button{
-    font-size: 15px;
-    padding:3px 20px;
-}
-.NavDownbar{
-    position: relative;
-    height: 50px;
-    background-color: rgb(241, 237, 237);
-    display: none;
-    border-top: royalblue 2px solid;
-}
-.preList_btn{
-    background-color: rgb(241, 237, 237);
-    padding: 10% 7%;
-    border-radius: 100%;
-    position: absolute;
-    right: 35%;
-    bottom: 0;
-    border-left: 1px solid royalblue;
-    border-right: 1px solid royalblue;
-    border-top: 4px solid royalblue;
-    cursor: pointer;
-}
-@media screen and (max-width : 640px){
-    .filters{
-        padding-right: 0;
-    }
-    #dropdown-basic-button{
-        height: 30px;
-        font-size: 15px;
-        padding:0 20px;
-    }
-    .NavDownbar{
-        display: block;
-    }
-}
-.rw-dropdown-list-input{
-    padding-right: 10px !important;
-}
-@media screen and (min-width: 2000px){
-    #dropdown-basic-button{
-        height: 30px;
-        font-size: 15px;
-        padding:0 10px;
-    }
-    .filters{
-        padding-right: 500px !important;
-    }
+    padding-right: 127px;
 }
