@@ -1,9 +1,17 @@
 .TopMenu{
     direction: rtl;
     background-color: rgb(10, 10, 250);
-    overflow: hidden;
-    }
+}
+.nav-link{
+    color: white !important;
+}
 .TopMenuItems{
     direction: rtl !important;
     font-family: 'yekan' !important;
+    color: white !important;
+}
+@media screen and (max-width:640px){
+    .TopMenu{
+        overflow: hidden;
+    }
 }

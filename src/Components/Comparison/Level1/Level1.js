@@ -1,262 +1,217 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, InputGroup, Button, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col , InputGroup , Button , FormControl , DropdownButton , Dropdown, Navbar} from 'react-bootstrap';
 import './Level1.css';
-import { FaAlignJustify, FaAngleLeft } from "react-icons/fa";
+import { FaAlignJustify , FaAngleLeft } from "react-icons/fa";
 import Level1Cards from './Level1Cards/Level1Cards';
-import { FaCheck, FaTimes } from 'react-icons/fa';
-import DropdownList from 'react-widgets/lib/DropdownList';
-import Axios from 'axios';
-import { SERVER_URL } from '../../../const';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 class Level1 extends Component {
-    listPrice = [];
     constructor(...args) {
         super(...args)
+    
         this.state = {
-            value: null,
-            people: [{ id: 1, name: "سلام" }, { id: 1, name: "مرات" }, { id: 1, name: "و جواد" },],
-            priceList: []
+            damageShow:false,
+          value: null,
+          damagevalue:null,
+          people: [{id:1 , name:"مرات"},{id:2 , name:"جواد"},{id:3 , name:"ممد"}], 
+          damage:[{id:1 , name:"با خسارت"},{id:2 , name:"بی خسارت"}]
         }
-    }
-    componentDidMount() {
-        Axios.post(SERVER_URL, {
-            "payload": {
-                "model": localStorage.getItem('selCarModel'),
-                "yearMade": localStorage.getItem('selYearMade'),
-                "endate": localStorage.getItem('selYear') + '/' + localStorage.getItem('selMonth') + '/' + localStorage.getItem('selDay'),
-                "discount": localStorage.getItem('selDiscount'),
-                "ubimDiscount": localStorage.getItem('selUbimDiscount') ? localStorage.getItem('selUbimDiscount') : "",
-                "driverDiscount": localStorage.getItem('selDriverDiscount'),
-                "usage": localStorage.getItem('selUsage'),
-                "preInsuranceDuration": localStorage.getItem('selPreInsuranceDuration'),
-                "damageRecived": localStorage.getItem('selDamageRecived'),
-                "damage": localStorage.getItem('selDamage') ? localStorage.getItem('selDamage') : "",
-                "driverDamage": localStorage.getItem('selDriverDamage') ? localStorage.getItem('selDriverDamage') : "",
-                "preInsurance": localStorage.getItem('selPreInsur'),
-                "requestType": "1"
-            },
-            "group": "price",
-            "key": "insurancePrice",
-            "src": "third"
-        })
-            .then(response => {
-                response.data.payload.map(price => {
-                    this.listPrice.push(
-                        <Level1Cards
-                            coImg={price.companyDetail[0].img}
-                            coTitle={price.companyDetail[0].title}
-                            coRate={price.companyDetail[0].rating}
-                            coBranch={price.companyDetail[0].branches}
-                            coSatisfaction={price.companyDetail[0].satisfaction}
-                            discount={price.discount}
-                            price={price.price}
-                            key={price.companyDetail[0].id}
-                        />
-                    )
-                })
-                this.setState({
-                    priceList: this.listPrice
-                })
+      }
+      hanleDamage = (e) =>{
+        this.setState({ damagevalue:e })
+        if (e.id === 1){
+            this.setState({
+                damageShow:true
             })
-            .catch(err => console.log(err));
-    }
+        }else{
+            this.setState({
+                damageShow:false
+            })
+        }
+      }
     render() {
         return (
             <div>
                 <Container className="Container">
-                    <div className="Level1_percents">
-                        <FaAlignJustify className="Level1_percentsl1_icon" /><span>اطلاعات بیشتر</span>
-                        <Container className="Level1_percents_form Container">
-                            <Row>
-                                <Col lg={4} xs={12}>
-                                    <p className="Level1_percents_form_p">کد تخفیف</p>
-                                    <InputGroup className="mb-3 Level1_percents_form_Input">
-                                        <InputGroup.Prepend>
-                                            <Button variant="outline-success">اعمال</Button>
-                                        </InputGroup.Prepend>
-                                        <FormControl aria-describedby="basic-addon1" />
-                                    </InputGroup>
-                                </Col>
-                                <Col lg={4} xs={12}>
-                                    <p className="Level1_percents_form_p">سطح تعهدات مالی</p>
-                                    <DropdownList filter
-                                        data={this.state.people}
-                                        value={this.state.value}
-                                        onCreate={name => this.handleCreate(name)}
-                                        onChange={value => this.setState({ value })}
-                                        textField="name"
-                                        placeholder="انتخاب کنید"
-                                        style={{ textAlign: "right" }}
-                                    />
-                                </Col>
-                                <Col lg={4} xs={12}>
-                                    <p className="Level1_percents_form_p">مدت اعتبار بیمه نامه</p>
-                                    <DropdownList filter
-                                        data={this.state.people}
-                                        value={this.state.value}
-                                        onCreate={name => this.handleCreate(name)}
-                                        onChange={value => this.setState({ value })}
-                                        textField="name"
-                                        placeholder="انتخاب کنید"
-                                        style={{ textAlign: "right" }}
-                                    />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
-                    <Row style={{ paddingLeft: 15, paddingRight: 15 }}>
+                <div className="Level1_percents">
+                    <FaAlignJustify className="Level1_percentsl1_icon"/><span>اطلاعات بیشتر</span>
+                    <Container className="Level1_percents_form Container">
+                    <Row>
+                        <Col lg={4} xs={12}>
+                            <p className="Level1_percents_form_p">سطح تعهدات مالی</p>
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                        </Col>
+                        <Col lg={4} xs={12}>
+                            <p className="Level1_percents_form_p">مدت اعتبار بیمه نامه</p>
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                        </Col>
+                        <Col lg={4} xs={12}>
+                            <p className="Level1_percents_form_p">کد تخفیف</p>
+                            <InputGroup className="mb-3 Level1_percents_form_Input">
+                                <InputGroup.Prepend> 
+                                <Button variant="outline-success">اعمال</Button>
+                                </InputGroup.Prepend>
+                                <FormControl aria-describedby="basic-addon1" />
+                            </InputGroup>
+                        </Col>
+                    </Row>
+                    </Container>
+                </div>
+                    <Row style={{paddingLeft:15 , paddingRight:15}}>
                         <Col className="Level1_Side_Bar" lg={3} >
-                            <div style={{ textAlign: 'right' }}>
-                                <FaAngleLeft className="Level1_percentsl1_icon" /><span>اطلاعات مرحله قبل</span>
+                            <div style={{textAlign:'right'}}>
+                                <FaAngleLeft className="Level1_percentsl1_icon"/><span>اطلاعات مرحله قبل</span>
                             </div>
-                            <div style={{ paddingRight: 15, paddingLeft: 15 }}>
+                            <div style={{paddingRight:15 , paddingLeft:15}}>
                                 <p className="Level1_percents_form_p">نوع وسیله نقلیه</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">برند</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">مدل</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">سال ساخت</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">شرکت بیمه گر قبلی</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">تاریخ سر رسید</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">تاریخ سررسید بیمه نامه</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">نوع بیمه نامه</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">درصد تخفیف بیمه نامه قبلی</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />  
                                 <p className="Level1_percents_form_p">تخفیف حوادث راننده</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
                                 <p className="Level1_percents_form_p">آیا از بیمه نامه قبلی خود خسارت دریافت کرده اید</p>
-                                <div className="form-check form-check-inline sideBar_radiobtn">
-                                    <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                                    <label className="form-check-label radioBtn">
-                                        <Container>
-                                            <Row>
-                                                <Col lg={6} style={{ paddingRight: 0 }}><span>بلی</span> </Col>
-                                                <Col lg={6} style={{ margin: "5px 0 0 0", paddingRight: 0 }}>
-                                                    <span><FaCheck style={{ color: 'green' }} /></span>
-                                                </Col>
-                                            </Row>
-                                        </Container>
-                                    </label>
-                                </div>
-                                <div className="form-check form-check-inline sideBar_radiobtn">
-                                    <input className="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                    <label className="form-check-label radioBtn">
-                                        <Container>
-                                            <Row>
-                                                <Col lg={6} style={{ paddingRight: 0 }}><span>خیر</span> </Col>
-                                                <Col lg={6} style={{ margin: "5px 0 0 0", paddingRight: 0 }}>
-                                                    <span><FaTimes style={{ color: 'red' }} /></span>
-                                                </Col>
-                                            </Row>
-                                        </Container>
-                                    </label>
-                                </div>
+                                <DropdownList filter
+                                data={this.state.damage}
+                                value={this.state.damagevalue}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={this.hanleDamage}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                            {this.state.damageShow ?
+                            <div>
                                 <p className="Level1_percents_form_p">تعداد خسارت مالی و جانی</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                damagevalue={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            /> 
                                 <p className="Level1_percents_form_p">تعداد خسارت راننده</p>
                                 <DropdownList filter
-                                    data={this.state.people}
-                                    value={this.state.value}
-                                    onCreate={name => this.handleCreate(name)}
-                                    onChange={value => this.setState({ value })}
-                                    textField="name"
-                                    placeholder="انتخاب کنید"
-                                    style={{ textAlign: "right" }}
-                                />
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            /> 
+                            </div>:null}
                             </div>
                         </Col>
                         <Col lg={9} className="Level1_main">
@@ -266,23 +221,34 @@ class Level1 extends Component {
                             <div className="level1_title">
                                 <Container>
                                     <Row>
-                                        <Col lg={9}>
-                                            <span className="title_text">لیست شرکت های بیمه</span>
+                                        <Col lg={9} md={9} sm={6} xs={6}>
+                                            <span className="title_text">لیست شرکت ها</span>
                                         </Col>
-                                        <Col lg={3}>
+                                        <Col lg={3} md={3} sm={6} xs={6}>
                                             <DropdownButton className="filters" variant="warning" id="dropdown-basic-button" title="فیلتر ها">
-                                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-1">کمترین قیمت</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">بیشترین قیمت</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">تعداد شعب</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">رضایت از پرداخت</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">سطح توانگری</Dropdown.Item>
                                             </DropdownButton>
                                         </Col>
                                     </Row>
                                 </Container>
                             </div>
-                            {(this.state.priceList)}
+                            <Level1Cards/>
+                            <Level1Cards/>
+                            <Level1Cards/>
+                            <Level1Cards/>
+                            <Level1Cards/>
                         </Col>
                     </Row>
                 </Container>
+                <div className="NavDownbar">
+                    <Navbar fixed="bottom" className="NavDownbar">
+                        <div className="preList_btn">ویرایش</div>
+                    </Navbar>
+                </div>
             </div>
         );
     }

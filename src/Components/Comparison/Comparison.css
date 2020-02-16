@@ -3,6 +3,7 @@
     font-family: 'yekan','yekanNum';
     margin-top: 60px;
     background-color: rgb(240, 240, 240);
+    overflow-x:hidden;
 }
 .comparison-stepper-circle1{
     display: -ms-inline-flexbox;

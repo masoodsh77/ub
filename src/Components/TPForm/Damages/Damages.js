@@ -1,79 +1,67 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import Select from "react-dropdown-select";
+import { Container, Row , Col } from 'react-bootstrap';
 import './Damages.css'
-import DropDown from '../../BabyComponent/DropDown';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 class Damages extends Component {
     constructor(...args) {
         super(...args)
-
+    
         this.state = {
-            value: null,
-            people: [{ id: "1", name: "بله" }, { id: "0", name: "خیر" },],
+          value: null,
+          people: [{id:1 , name:"سلام"},{id:1 , name:"مرات"},{id:1 , name:"و جواد"},], 
         }
-    }
+      }
     render() {
-        const {
-            selDamageRecived,
-            damage,
-            driverDamage,
-        } = this.props;
-        const damageRecived = [{ id: "1", name: "بله" }, { id: "0", name: "خیر" },];
         return (
             <div className="damages">
                 <Container>
                     <Row>
                         <Col>
                             <p>آیا از بیمه نامه قبلی خسارت دریافت کرده اید</p>
-                            <DropDown
-                                name="selDamageRecived"
-                                selectOptions={damageRecived}
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
                                 textField="name"
-                                valueField="id"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </Col>
                     </Row>
-                    {
-                        selDamageRecived === '1'
-                            ?
-                            <Row>
-                                <Col>
-                                    <p>نوع آسیب</p>
-                                    <DropDown
-                                        name="selDamage"
-                                        selectOptions={damage}
-                                        textField="title"
-                                        valueField="sign"
-                                    />
-                                </Col>
-                                <Col>
-                                    <p>نوع آسیب راننده</p>
-                                    <DropDown
-                                        name="selDriverDamage"
-                                        selectOptions={driverDamage}
-                                        textField="title"
-                                        valueField="damageType"
-                                    />
-                                </Col>
-                            </Row>
-                            :
-                            ''
-                    }
-                    <Row className="text-center">
-                        <Link to="/comparison">
-                            <Button variant="warning" style={{ fontFamily: 'yekan' }}>مقایسه</Button>
-                        </Link>
+                    <Row>
+                        <Col>
+                            <p>درصد تخفیف ثالث</p>
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                        </Col>
+                        <Col>
+                            <p>درصد تخفیف حوادث راننده</p>
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                        </Col>
                     </Row>
                 </Container>
-
+                
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({
-    selDamageRecived: state.third.selDamageRecived
-})
-export default connect(mapStateToProps)(Damages);
+export default Damages;

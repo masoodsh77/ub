@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import './CarInfo.css';
-import DropDown from '../../BabyComponent/DropDown';
-import {connect} from 'react-redux';
+import Select from "react-dropdown-select";
+import './CarInfo.css'
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 
 class CarInfo extends Component {
+    constructor(...args) {
+        super(...args)
+    
+        this.state = {
+          value: null,
+          people: [{id:1 , name:"سلام"},{id:1 , name:"مرات"},{id:1 , name:"و جواد"},], 
+        }
+      }
     render() {
-        const {
-            cars,
-            models,
-            yearMade,
-            usage
-        } = this.props;
+        const { cars } = this.props;
         return (
             <div className="carinfo">
                 <div className="container">
@@ -22,55 +25,53 @@ class CarInfo extends Component {
                     <div className="row">
                         <div className="col">
                             <p>نوع وسیله نقلیه</p>
-                            <DropDown
-                                name="selCar"
-                                brand={true}
-                                selectOptions={cars}
-                                textField="title"
-                                valueField="id"
+                            <DropdownList filter
+                                data={cars}
+                                value={this.state.value}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-6">
                             <p>برند</p>
-                            <DropDown
-                                name="selCar"
-                                brand={true}
-                                selectOptions={cars}
-                                textField="title"
-                                valueField="id"
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </div>
                         <div className="col-6">
                             <p>مدل</p>
-                            <DropDown
-                                name="selCarModel"
-                                selectOptions={models}
-                                textField="title"
-                                valueField="id"
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col">
                             <p>سال ساخت</p>
-                            <DropDown
-                                name="selYearMade"
-                                brand={true}
-                                selectOptions={yearMade}
-                                textField="yearText"
-                                valueField="id"
-                            />
-                        </div>
-                        <div className="col-6">
-                            <p>نوع کاربری</p>
-                            <DropDown
-                                name="selUsage"
-                                brand={true}
-                                selectOptions={usage}
-                                textField="title"
-                                valueField="id"
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </div>
                     </div>
@@ -81,9 +82,4 @@ class CarInfo extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    models: state.third.carModels
-});
-
-
-export default connect(mapStateToProps)(CarInfo);
+export default CarInfo;

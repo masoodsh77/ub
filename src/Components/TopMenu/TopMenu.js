@@ -11,7 +11,10 @@ class TopMenu extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="TopMenuItems">
-                        <NavDropdown title="بیمه خودرو" id="collasible-nav-dropdown">
+                        <NavDropdown title="انواع بیمه نامه ها" id="collasible-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">شخص ثالث</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">شخص ثالث</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.1">شخص ثالث</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.1">شخص ثالث</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#features">وبلاگ</Nav.Link>

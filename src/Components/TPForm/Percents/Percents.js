@@ -1,33 +1,46 @@
 import React, { Component } from 'react';
 import { Container, Row , Col } from 'react-bootstrap';
 import './Percents.css';
-import DropDown from '../../BabyComponent/DropDown';
+import DropdownList from 'react-widgets/lib/DropdownList'
 
 class Percents extends Component {
+    constructor(...args) {
+        super(...args)
+    
+        this.state = {
+          value: null,
+          people: [{id:1 , name:"سلام"},{id:1 , name:"مرات"},{id:1 , name:"و جواد"},], 
+        }
+      }
     render() {
-        const {discount} = this.props;
         return (
             <div className="percents">
                 <Container>
                     <Row>
                         <Col>
                             <p>درصد تخفیف بیمه نامه قبلی</p>
-                            <DropDown
-                                name="selDiscount"
-                                selectOptions={discount}
-                                textField="title"
-                                valueField="offValue"
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <p>تخفیف حوادث راننده</p>
-                            <DropDown
-                                name="selDriverDiscount"
-                                selectOptions={discount}
-                                textField="title"
-                                valueField="offValue"
+                            <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
                             />
                         </Col>
                     </Row>

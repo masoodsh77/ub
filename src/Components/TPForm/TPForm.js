@@ -25,15 +25,27 @@ class TPForm extends Component {
     render() {
         const {
             cars,
+            models,
             yearMade,
             company,
             preInsuranceDuration,
             selDate,
             discount,
             usage,
-            selDamageRecived = "0",
+            damageRecived,
             damage,
             driverDamage,
+            selCarModel,
+            selYearMade,
+            selPreInsurance,
+            selUsage,
+            selDiscount,
+            selDamageRecived,
+            selDamage,
+            selDriverDamage,
+            selDriverDiscount,
+            selUbimDiscount,
+            selPreInsuranceDuration
         } = this.props;
         return (
             <div className="tp_stepper">
@@ -74,32 +86,20 @@ class TPForm extends Component {
                             <form onSubmit={this.onSubmit}>
                                 <div id="test-l-1" className="content">
                                     <div className="form-group">
-                                        <CarInfo 
-                                            cars={cars} 
-                                            yearMade={yearMade} 
-                                            usage={usage}
-                                        />
+                                        <CarInfo cars={cars} />
                                     </div>
                                 </div>
                                 <div id="test-l-2" className="content">
                                     <div className="form-group">
-                                        <PreInsurance 
-                                            company={company} 
-                                            preInsuranceDuration={preInsuranceDuration}
-                                            selDate={selDate}
-                                        />
+                                        <PreInsurance />
                                     </div>
                                 </div>
                                 <div id="test-l-3" className="content text-center">
-                                    <Percents discount={discount} />
+                                    <Percents />
                                 </div>
                                 <div id="test-l-4" className="content">
                                     <div className="form-group">
-                                        <Damages 
-                                            selDamageRecived={selDamageRecived}
-                                            damage={damage}
-                                            driverDamage={driverDamage}
-                                        />
+                                        <Damages />
                                     </div>
                                 </div>
                             </form>
