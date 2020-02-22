@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
-import { Container, Row, Col , InputGroup , Button , FormControl , DropdownButton , Dropdown, Navbar} from 'react-bootstrap';
+import { Container , Modal , Row, Col , InputGroup , Button , FormControl , DropdownButton , Dropdown, Navbar} from 'react-bootstrap';
 import './Level1.css';
-import { FaAlignJustify , FaAngleLeft } from "react-icons/fa";
+import { FaAlignJustify , FaAngleLeft , FaEdit} from "react-icons/fa";
 import Level1Cards from './Level1Cards/Level1Cards';
-import DropdownList from 'react-widgets/lib/DropdownList'
+import DropdownList from 'react-widgets/lib/DropdownList';
+
 
 class Level1 extends Component {
-    constructor(...args) {
-        super(...args)
+    constructor() {
+        super()
     
         this.state = {
+            editShow:false,
             damageShow:false,
-          value: null,
-          damagevalue:null,
-          people: [{id:1 , name:"مرات"},{id:2 , name:"جواد"},{id:3 , name:"ممد"}], 
-          damage:[{id:1 , name:"با خسارت"},{id:2 , name:"بی خسارت"}]
+            value: null,
+            damagevalue:null,
+            people: [{id:1 , name:"مرات"},{id:2 , name:"جواد"},{id:3 , name:"ممد"}], 
+            damage:[{id:1 , name:"با خسارت"},{id:2 , name:"بی خسارت"}]
         }
       }
+        handleClose = () => this.setState({
+            editShow : false
+        });
+        handleShow = () => this.setState({
+            editShow: true
+        });
       hanleDamage = (e) =>{
         this.setState({ damagevalue:e })
         if (e.id === 1){
@@ -244,10 +252,160 @@ class Level1 extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <div className="NavDownbar">
-                    <Navbar fixed="bottom" className="NavDownbar">
-                        <div className="preList_btn">ویرایش</div>
+                <div className="NavDownbar" >
+                    <Navbar bg="light" fixed="bottom" className="NavDownbar">
+                        <Button variant="warning" block onClick={this.handleShow}>ویرایش اطلاعات <FaEdit className="edit_icon"/></Button>
                     </Navbar>
+                    <Modal show={this.state.editShow} onHide={this.handleClose}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>ویرایش اطلاعات</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                        <div style={{paddingRight:15 , paddingLeft:15}}>
+                                <p className="Level1_percents_form_p">نوع وسیله نقلیه</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">برند</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">مدل</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">سال ساخت</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">شرکت بیمه گر قبلی</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">تاریخ سر رسید</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">تاریخ سررسید بیمه نامه</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">نوع بیمه نامه</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">درصد تخفیف بیمه نامه قبلی</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />  
+                                <p className="Level1_percents_form_p">تخفیف حوادث راننده</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                                <p className="Level1_percents_form_p">آیا از بیمه نامه قبلی خود خسارت دریافت کرده اید</p>
+                                <DropdownList filter
+                                data={this.state.damage}
+                                value={this.state.damagevalue}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={this.hanleDamage}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            />
+                            {this.state.damageShow ?
+                            <div>
+                                <p className="Level1_percents_form_p">تعداد خسارت مالی و جانی</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                damagevalue={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            /> 
+                                <p className="Level1_percents_form_p">تعداد خسارت راننده</p>
+                                <DropdownList filter
+                                data={this.state.people}
+                                value={this.state.value}
+                                onCreate={name => this.handleCreate(name)}
+                                onChange={value => this.setState({ value })}
+                                textField="name"
+                                placeholder="انتخاب کنید"
+                                style={{textAlign:"right"}}
+                            /> 
+                            </div>:null}
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            انصراف
+                        </Button>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            اعمال تغییرات
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
             </div>
         );

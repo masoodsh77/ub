@@ -3,6 +3,9 @@ import TopMenu from '../TopMenu/TopMenu';
 import './Comparison.css';
 import Stepper from 'bs-stepper';
 import Level1 from './Level1/Level1'
+import SubmitForm from './SubmitForm/SubmitForm';
+import SendInfo from './SendInfo/SendInfo';
+import Factor from './Factor/Factor';
 
 class Comparison extends Component {
     componentDidMount() {
@@ -61,15 +64,15 @@ class Comparison extends Component {
                     </div>
                     <div id="test-l-2" class="content">
                         <div class="form-group">
-                        
+                            <SubmitForm/>
                         </div>
                     </div>
                     <div id="test-l-3" class="content text-center">
-        
+                            <SendInfo/>
                     </div>
                     <div id="test-l-4" class="content">
                         <div class="form-group">
-    
+                            <Factor/>
                         </div>
                     </div>
                     </form>

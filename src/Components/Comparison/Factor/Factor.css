@@ -1,0 +1,9 @@
+.Factor{
+    border-radius: 10px;
+    box-shadow: 0 0 3px gray;
+    height: 100%;
+    padding: 10px 10px !important;
+    background-color: white ;
+    margin-bottom: 10px;
+    text-align: right;
+}

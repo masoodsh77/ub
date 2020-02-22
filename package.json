@@ -12,6 +12,7 @@
     "git": "^0.1.5",
     "jalali-date": "^1.1.0",
     "node-sass": "^4.13.1",
+    "rc-queue-anim": "^1.8.3",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
@@ -25,7 +26,8 @@
     "react-widgets": "^4.4.11",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "yagoubi-upload-images": "^1.2.6"
   },
   "scripts": {
     "start": "react-scripts start",

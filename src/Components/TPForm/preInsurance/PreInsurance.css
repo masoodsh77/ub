@@ -3,15 +3,6 @@
     direction: rtl;
     text-align: right;
 }
-.calender{
-    text-align: right;
-    padding: 0.4rem 0.1rem;
-    font-size: 15px;
-    border: 1px solid black;
-    border-radius: 4px;
-    color: black;
-    outline: none;
-}
 @media screen and (max-width : 680px){
     .preinsurance{
         padding: 10px 10px;

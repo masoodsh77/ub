@@ -64,12 +64,52 @@ body{
     color: green;
     font-weight: bold;
     font-size: 16px;
+    font-family: 'yekanWoff';
 }
 .price_col{
     margin-top: 20px;
 }
 .price_Btn{
     border-right: 1px dashed gray;
+}
+.level1Card_modal{
+    direction: rtl;
+    text-align: right;
+}
+.close{
+    display: none;
+}
+.modal-title{
+    font-size: 19px !important;
+}
+.Modal_Factor{
+    width: 100%;
+    box-shadow: 0px 0px 2px gray;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: right;
+    padding: 10px;
+}
+.Modal_Factor_circle{
+    height: 15px;
+    width: 15px;
+    background-color: royalblue;
+    border-radius: 100%;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    float: right;
+    
+}
+.Modal_Factor_Price{
+    background-color: lightcyan;
+    margin: 10px 10px;
+    border-radius: 1px;
+    padding: 10px;
+}
+.Modal_Factor_Price_Number{
+    font-family: 'yekanWoff';
+    text-align: left;
 }
 @media screen and (max-width: 640px){
     .price_Btn{

@@ -91,23 +91,17 @@
 }
 .NavDownbar{
     position: relative;
-    height: 50px;
+    height: 40px;
     background-color: rgb(241, 237, 237);
-    display: none;
-    border-top: royalblue 2px solid;
+    display: none
 }
-.preList_btn{
-    background-color: rgb(241, 237, 237);
-    padding: 10% 7%;
-    border-radius: 100%;
+
+.edit_icon{
     position: absolute;
-    right: 35%;
-    bottom: 0;
-    border-left: 1px solid royalblue;
-    border-right: 1px solid royalblue;
-    border-top: 4px solid royalblue;
-    cursor: pointer;
+    top: 13px;
+    right: 30%;
 }
+
 @media screen and (max-width : 640px){
     .filters{
         padding-right: 0;

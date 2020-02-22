@@ -1,0 +1,65 @@
+.SendInfo{
+    border-radius: 10px;
+    box-shadow: 0 0 3px gray;
+    height: 100%;
+    padding: 10px 10px !important;
+    background-color: white;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.SendInfo_SendTo{
+    background-color: royalblue;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;  
+    float: right;
+    padding-left: 0;
+    height: 100%;
+    width: 100%;
+
+}
+.SendInfo_SendTo_Btn{
+    border: white 1px solid;
+    width: 175px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    float: right;
+    margin-left: 10px;
+}
+.SendInfo_SendTo_Btn:hover{
+    background-color: white;
+    color: black;
+}
+.selected {
+    background-color: white;
+    color: black;
+}
+.SendInfo_NewAddressForm{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top: 1px solid royalblue;
+    border-left: 1px solid royalblue;
+    border-bottom: 1px solid royalblue;
+}
+.SendInfo_Alert{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+@media screen and (max-width:640px){
+    .SendInfo_SendTo_Btn{
+       width: 142px;
+
+    }
+    .SendInfo_NewAddressForm{
+        border-top-left-radius: 0;
+        border-bottom-right-radius:10px;
+        border-bottom-left-radius: 10px;
+        border-right: 1px solid royalblue;
+        border-left: 1px solid royalblue;
+        border-bottom: 1px solid royalblue;    
+        border-top: none;
+    }
+}

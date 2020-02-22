@@ -1,0 +1,77 @@
+.SubmitForm{
+    border-radius: 10px;
+    box-shadow: 0 0 3px gray;
+    height: 100%;
+    padding: 10px 10px !important;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.SubmitForm p{
+ text-align: right;
+}
+.SubmitForm_Information{
+    border-left: 1px dashed lightgray;
+    font-size: 14px;
+}
+@media screen and (max-width : 640px){
+    .SubmitForm_Information_XS{
+        border-left: none;
+    }
+    .SubmitForm_Information_XS_BorderTop{
+        border-top: 1px dashed lightgray ;
+    }
+    .calender{
+        width: 100% !important;
+    }
+}
+.SubmitForm_Information_End{
+    font-size: 14px;
+}
+.SubmitForm_Group{
+    text-align: right !important;
+    font-size: 14px;
+}
+.SubmitForm_titr{
+    margin-bottom: 30px;
+    text-align: right;
+}
+.SubmitForm_icon{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: darkorange;
+}
+.SubmitForm_text{
+    border-bottom: darkorange 3px solid;
+}
+.SubmitForm_Group_man{
+    background-color: rgb(241, 241, 241);
+    width: 100px;
+    float: right;
+    margin-left: 10px;
+    text-align: center;
+    padding: 8px 0;
+    border: 1px solid royalblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.SubmitForm_Group_man:hover{
+    background-color: royalblue;
+    color: white;
+}
+.SubmitForm_Group_man_active{
+    background-color: royalblue;
+    color: white;
+}
+.form-control{
+    font-size:12px !important ;
+    padding: 18px 5px !important;
+}
+.SubmitForm_alert{
+    border: 1px solid rgb(250, 98, 98);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(255, 220, 220);
+    color: rgb(255, 0, 0);
+    margin-top: 10px;
+    text-align: center;
+}

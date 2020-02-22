@@ -7,6 +7,7 @@ import { getFirstData } from './action';
 import Home from './Components/Home/Home';
 import TPForm from './Components/TPForm/TPForm'
 import Comparison from './Components/Comparison/Comparison';
+import UserDashboard from './Components/UserDashboard/UserDashboard';
 
 class App extends Component {
     componentDidMount() {
@@ -32,6 +33,7 @@ class App extends Component {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/tpform' component={TPForm} />
                     <Route exact path='/comparison' component={Comparison} />
+                    <Route exact path='/userdashboard' component={UserDashboard} />
                 </Router>
             </div>
         );

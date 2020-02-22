@@ -7,18 +7,17 @@ import { Link } from 'react-router-dom';
 class Slide extends Component {
     render() {
         return (
-            <Link to="/comparison">
                 <div className="slide">
                     <img src={City} className="slide_img" alt="back"/>
                     <div className="slide_btn_box">
-                        <div className="slide_btn">
-                            <img src={tpIcon} width="80%" alt="tpCar"/>
-                            بیمه شخص ثالث
-                        </div>
-                        
+                        <Link to="/comparison">
+                            <div className="slide_btn">
+                                <img src={tpIcon} width="80%" alt="tpCar"/>
+                                بیمه شخص ثالث
+                            </div>
+                        </Link>
                     </div>
                 </div>
-            </Link>
         );
     }
 }

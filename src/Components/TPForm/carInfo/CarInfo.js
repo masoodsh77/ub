@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Select from "react-dropdown-select";
 import './CarInfo.css'
 import DropdownList from 'react-widgets/lib/DropdownList'
 
